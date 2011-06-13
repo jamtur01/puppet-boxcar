@@ -23,7 +23,9 @@ Installation & Usage
     path.
 
 3.  Update the `boxcar_email` and `boxcar_password` variables in the `boxcar.yaml` file with 
-    your Boxcar connection details and copy the file to `/etc/puppet/`. An example file is included.
+    your Boxcar connection details and copy the file to `/etc/puppet/`. You will need to have the 
+    Growl service enabled in Boxcar (see the `Add Services` screen on the Boxcar website). This
+    service doubles as the API service. An example `boxcar.yaml` file is included.
 
 4.  Enable pluginsync and reports on your master and clients in `puppet.conf`
 

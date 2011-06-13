@@ -23,8 +23,8 @@ Puppet::Reports.register_report(:boxcar) do
     if self.status == 'failed'
       Puppet.debug "Sending status for #{self.host} to Boxcar."
       bu = BoxcarAPI::User.new(BOXCAR_EMAIL, BOXCAR_PASSWORD)
-      res = bu.notify("Puppet run for #{self.host} #{self.status} at #{Time.now.asctime}")
-      if res = 200
+      res = bu.notify("Puppet run for #{self.host} #{self.status} at #{Time.now.asctime}", "Puppet")
+      if res == 200
         Puppet.debug "Boxcar notification successful!"
       else
         Puppet.debug "There was a problem delivering the Boxcar notification, HTTP status code: #{res.code}"
